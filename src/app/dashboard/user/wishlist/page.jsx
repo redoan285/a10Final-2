@@ -77,7 +77,7 @@ export default async function WishlistPage() {
                         <Table.Cell>
                           <div className="flex items-center gap-4 py-2">
                             <div className="relative w-12 h-16 rounded overflow-hidden border border-neutral-200 dark:border-white/10 bg-neutral-200 dark:bg-neutral-900 shadow-md">
-                              <Image src={item.coverImage} alt={item.title} fill className="object-cover" />
+                              <Image src={item.coverImage || item.imageUrl || "/assets/logo.png"} alt={item.title || "Book"} fill className="object-cover" />
                             </div>
                             <Link href={`/books/${item.bookId}`} className="font-bold text-neutral-900 dark:text-white text-base hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors line-clamp-2">
                               {item.title}

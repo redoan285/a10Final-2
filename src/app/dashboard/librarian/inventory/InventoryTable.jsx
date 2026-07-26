@@ -119,7 +119,7 @@ export default function InventoryTable({ books }) {
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-14 relative rounded overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-white/10 shrink-0">
                         <Image
-                          src={book?.coverImage || "/assets/logo.png"}
+                          src={book?.coverImage || book?.imageUrl || "/assets/logo.png"}
                           alt={book?.title || "Book"}
                           fill
                           className="object-cover"

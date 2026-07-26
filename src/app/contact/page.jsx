@@ -32,7 +32,7 @@ export default function ContactPage() {
 
   const contactInfo = [
     { icon: Mail, title: "Email Us", detail: "support@bibliodrop.com" },
-    { icon: Phone, title: "Call Us", detail: "+880 1234 567 890" },
+    { icon: Phone, title: "Call Us", detail: "+880 1756 301 760" },
     { icon: MapPin, title: "Location", detail: "Dhaka, Bangladesh" },
   ];
 

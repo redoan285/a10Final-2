@@ -40,7 +40,7 @@ export default async function BookDetailsPage({ params }) {
   if (!res?.success || !res?.data) return notFound();
 
   const book = res.data;
-  const isAvailable = book.status === "Published";
+  const isAvailable = book.status?.toLowerCase() === "published";
   const isOwner =
     currentUser?.id === book.librarianId ||
     currentUser?.email === book.librarianEmail;
@@ -116,8 +116,8 @@ export default async function BookDetailsPage({ params }) {
 
                 <div className="absolute inset-0 rounded-3xl overflow-hidden border border-neutral-200/80 dark:border-white/20 bg-neutral-100 dark:bg-[#0a0a0a] shadow-[0_15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:shadow-[0_30px_60px_rgba(16,185,129,0.2)] group-hover:-translate-y-2">
                   <Image
-                    src={book.coverImage}
-                    alt={book.title}
+                    src={book.coverImage || book.imageUrl || "/assets/logo.png"}
+                    alt={book.title || "Book cover"}
                     fill
                     priority
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"

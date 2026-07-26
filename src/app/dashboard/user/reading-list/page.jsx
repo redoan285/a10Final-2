@@ -46,8 +46,8 @@ export default async function ReadingListPage() {
             >
               <div className="relative w-full sm:w-40 md:w-44 lg:w-40 xl:w-48 h-56 sm:h-auto flex-shrink-0 bg-neutral-200 dark:bg-neutral-900 overflow-hidden">
                 <Image
-                  src={order.book.coverImage}
-                  alt={order.book.title}
+                  src={order.book.coverImage || order.book.imageUrl || "/assets/logo.png"}
+                  alt={order.book.title || "Book cover"}
                   fill
                   sizes="(max-width: 640px) 100vw, 200px"
                   className="object-cover group-hover:scale-110 transition-transform duration-700"

@@ -4,7 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { Avatar, Button, Dropdown, Label } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -27,9 +27,14 @@ import { ModeToggle } from "@/components/ModeToggle";
 
 const NavbarClient = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathName = usePathname();
   const { data: session } = authClient.useSession();
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const backgroundColor = useTransform(
     scrollY,
@@ -50,7 +55,7 @@ const NavbarClient = () => {
 
   if (pathName?.includes("dashboard")) return null;
 
-  const user = session?.user;
+  const user = mounted ? session?.user : null;
   const initials =
     user?.name
       ?.split(" ")
@@ -149,7 +154,6 @@ const NavbarClient = () => {
                   <Dropdown.Trigger className="cursor-pointer rounded-full transition-transform hover:scale-105 drop-shadow-md">
                     <Avatar
                       size="sm"
-                      isBordered
                       className="ring-2 ring-offset-2 ring-offset-white dark:ring-offset-[#0a0a0a] ring-emerald-500/50 w-7 h-7 lg:w-8 lg:h-8"
                     >
                       <Avatar.Image src={user.image} alt={user.name} />

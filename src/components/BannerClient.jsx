@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -13,7 +13,13 @@ import "swiper/css/effect-fade";
 
 const BannerClient = ({ bannerData }) => {
   const { data: session } = authClient.useSession();
-  const user = session?.user;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const user = mounted ? session?.user : null;
   return (
     <section className="relative w-full transition-colors duration-300">
       <Swiper

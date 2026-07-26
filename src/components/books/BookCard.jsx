@@ -15,8 +15,8 @@ export default function BookCard({ book }) {
         }}
       >
         <Image
-          src={book.coverImage}
-          alt={book.title}
+          src={book.coverImage || book.imageUrl || "/assets/logo.png"}
+          alt={book.title || "Book cover"}
           fill
           className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
