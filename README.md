@@ -115,7 +115,7 @@ Follow these steps to get the project up and running on your local machine:
 
 1. Clone the repository:
 
-git clone [https://github.com/Ashik-Ahammad/biblio-drop-client.git](https://github.com/Ashik-Ahammad/biblio-drop-client.git)
+git clone [https://github.com/redoan285/a10Final-2.git ](https://github.com/redoan285/a10Final-2.git)
 cd biblio-drop-client
 
 2. Install dependencies:
